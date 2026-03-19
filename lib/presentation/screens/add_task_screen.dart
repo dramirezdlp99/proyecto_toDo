@@ -165,6 +165,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       return;
     }
 
+    if (_selectedTime == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please select a time for the task')),
+      );
+      return;
+    }
+
     setState(() => _isLoading = true);
 
     try {
